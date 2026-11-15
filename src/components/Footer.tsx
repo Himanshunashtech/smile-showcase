@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -12,9 +13,9 @@ export function Footer() {
     <footer className="border-t border-border mt-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2 font-display text-2xl">
-            <span className="inline-block w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary-glow" />
-            denytis<span className="text-primary">.</span>
+          <div className="flex items-center gap-2.5 font-display text-2xl">
+            <img src={logo} alt="Denytis Logo" className="w-8 h-8 rounded-lg object-cover shadow-sm" />
+            <span>denytis<span className="text-primary">.</span></span>
           </div>
           <p className="mt-4 text-muted-foreground max-w-sm">
             Calm, modern dentistry. We treat your teeth like they're ours — because a great smile shouldn't be complicated.

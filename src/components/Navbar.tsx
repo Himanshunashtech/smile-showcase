@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -29,9 +30,9 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2 font-display text-2xl tracking-tight">
-          <span className="inline-block w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary-glow" />
-          denytis<span className="text-primary">.</span>
+        <Link to="/" className="flex items-center gap-2.5 font-display text-2xl tracking-tight group">
+          <img src={logo} alt="Denytis Logo" className="w-8 h-8 rounded-lg object-cover shadow-sm transition-transform group-hover:scale-105" />
+          <span>denytis<span className="text-primary">.</span></span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
           {nav.map((n) => (
