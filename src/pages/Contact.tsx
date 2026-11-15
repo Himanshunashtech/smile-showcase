@@ -1,22 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { Mail, MapPin, Phone, Clock, Check } from "lucide-react";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Denytis Dental" },
-      { name: "description", content: "Book a dental visit at Denytis. Address, hours, phone, and a fast contact form to get on the schedule." },
-      { property: "og:title", content: "Contact — Denytis Dental" },
-      { property: "og:description", content: "Book a visit, ask a question, or drop by the clinic." },
-    ],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function Contact() {
   const [sent, setSent] = useState(false);
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();

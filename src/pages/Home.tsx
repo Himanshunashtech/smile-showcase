@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -14,10 +14,6 @@ import portrait from "@/assets/smile-portrait.jpg";
 import tools from "@/assets/tools.jpg";
 import team from "@/assets/team.jpg";
 import tooth from "@/assets/tooth-3d.jpg";
-
-export const Route = createFileRoute("/")({
-  component: Home,
-});
 
 const services = [
   { icon: Smile, title: "Cosmetic Dentistry", body: "Veneers, bonding, and whitening tuned to your face — never off-the-shelf." },
@@ -55,7 +51,7 @@ const reviews = [
   { name: "Priya S.", role: "Patient · 5 years", body: "Kind, funny, on-time. My kids ask when we're going back. That's all I need to know." },
 ];
 
-function Home() {
+export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 

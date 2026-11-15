@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import {
@@ -6,18 +6,6 @@ import {
   Zap, Layers, Wrench, ArrowRight, Check,
 } from "lucide-react";
 import tools from "@/assets/tools.jpg";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — Denytis Dental" },
-      { name: "description", content: "Explore Denytis dental services: preventive care, cosmetic dentistry, restorative work, whitening, and family dentistry." },
-      { property: "og:title", content: "Services — Denytis Dental" },
-      { property: "og:description", content: "Preventive, cosmetic, restorative, and family dental care under one calm roof." },
-    ],
-  }),
-  component: ServicesPage,
-});
 
 const groups = [
   {
@@ -62,7 +50,7 @@ const groups = [
   },
 ];
 
-function ServicesPage() {
+export default function Services() {
   return (
     <>
       <section className="gradient-hero">

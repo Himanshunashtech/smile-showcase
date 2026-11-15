@@ -1,21 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { ArrowRight, Award, Heart, Leaf, Users } from "lucide-react";
 import team from "@/assets/team.jpg";
 import hero from "@/assets/hero-clinic.jpg";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Denytis Dental" },
-      { name: "description", content: "Meet the Denytis team — a family-owned modern dental practice built on gentle care, transparent pricing, and beautiful craftsmanship." },
-      { property: "og:title", content: "About — Denytis Dental" },
-      { property: "og:description", content: "Family-owned modern dentistry. Learn about our team and our values." },
-    ],
-  }),
-  component: AboutPage,
-});
 
 const values = [
   { icon: Heart, t: "Gentle by default", d: "Comfort isn't a premium add-on. It's how every appointment starts." },
@@ -31,7 +19,7 @@ const people = [
   { name: "Nora Chen, RDH", role: "Lead Hygienist", bio: "Has convinced dozens of self-declared flossophobes to floss. Miracle worker." },
 ];
 
-function AboutPage() {
+export default function About() {
   return (
     <>
       <section className="gradient-hero">
