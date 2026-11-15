@@ -13,19 +13,43 @@ const nav = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    let lastScrollY = window.scrollY;
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 12);
+
+      if (open) {
+        setVisible(true);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      // Swipe up / scroll down: hide navbar
+      if (currentScrollY > lastScrollY && currentScrollY > 60) {
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 12) {
+        // Swipe down / scroll up: show navbar
+        setVisible(true);
+      }
+
+      lastScrollY = Math.max(0, currentScrollY);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [open]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      } ${
         scrolled
-          ? "backdrop-blur-md bg-background/70 border-b border-border"
+          ? "backdrop-blur-md bg-background/80 border-b border-border shadow-xs"
           : "bg-transparent"
       }`}
     >
